@@ -7,8 +7,8 @@ const { URL } = require("url");
 const publicDir = path.join(__dirname, "public");
 
 const adminCredentials = {
-  userId: "sxxr","gourav",
-  password: "0307","gour"
+  userId: "sxxr",
+  password: "0307"
 };
 
 const validStatuses = new Set(["open", "inProgress", "resolved"]);
