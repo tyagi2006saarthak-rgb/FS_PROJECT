@@ -1,0 +1,363 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+:root {
+  --bg-top: #f1f8ff;
+  --bg-bottom: #fff1d6;
+  --ink: #1f2937;
+  --muted: #4b5563;
+  --surface: #ffffff;
+  --surface-strong: #f8fafc;
+  --line: #d1d5db;
+  --primary: #0b8f7a;
+  --primary-dark: #0a6e5f;
+  --danger: #c2410c;
+  --success: #0f766e;
+  --shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 90% 5%, rgba(11, 143, 122, 0.18), transparent 25%),
+    radial-gradient(circle at 10% 90%, rgba(251, 146, 60, 0.16), transparent 24%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.login-panel,
+.view-panel,
+.app-shell {
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-area {
+  display: grid;
+  gap: 1rem;
+}
+
+.role-panel h2 {
+  margin-top: 0;
+}
+
+.role-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.role-actions .role-choice {
+  min-width: 150px;
+  transition: background 140ms ease, color 140ms ease, border-color 140ms ease;
+  background: #ffffff;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.role-actions .role-choice.is-selected {
+  color: #ffffff;
+  background: linear-gradient(120deg, var(--primary-dark), var(--primary));
+  border-color: transparent;
+}
+
+.complaint-form,
+.login-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.hero {
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background: linear-gradient(130deg, #0f766e 0%, #0b8f7a 50%, #14b8a6 100%);
+  color: #f8fafc;
+  box-shadow: var(--shadow);
+  animation: fade-slide-in 400ms ease-out;
+}
+
+.hero-compact {
+  padding: 1rem;
+}
+
+.hero h1 {
+  margin: 0.5rem 0;
+  line-height: 1.15;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  padding: 0.85rem;
+  box-shadow: var(--shadow);
+  animation: fade-slide-in 450ms ease-out;
+}
+
+.stat-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.stat-card strong {
+  font-size: 1.8rem;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  animation: fade-slide-in 500ms ease-out;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.session-actions {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.session-label {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  color: rgba(248, 250, 252, 0.9);
+}
+
+.helper-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.section-divider {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 0.5rem 0 0.75rem;
+}
+
+.filters {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  display: grid;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+label {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  padding: 0.62rem 0.72rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--line);
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus-visible {
+  outline: 2px solid rgba(11, 143, 122, 0.3);
+  outline-offset: 1px;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  color: #ffffff;
+  background: linear-gradient(120deg, var(--primary-dark), var(--primary));
+  font-weight: 600;
+}
+
+button:hover {
+  filter: brightness(1.03);
+}
+
+button.secondary {
+  color: var(--ink);
+  background: #ffffff;
+  border: 1px solid var(--line);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.message {
+  min-height: 1.25rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.message[data-type="error"] {
+  color: var(--danger);
+}
+
+.message[data-type="success"] {
+  color: var(--success);
+}
+
+.reports-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.report-card,
+.report-empty {
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  padding: 0.9rem;
+}
+
+.report-card h3 {
+  margin: 0;
+}
+
+.report-top-row {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.report-description {
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+.report-meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.report-actions {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.45rem;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.status-open {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-inProgress {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status-resolved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 880px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .role-actions {
+    flex-direction: column;
+  }
+
+  .login-form,
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .role-switch,
+  .session-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .report-top-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    padding-inline: 0.75rem;
+  }
+}

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Problem Reporting</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">Community Operations</p>
+        <h1>Local Community Problem Reporting System</h1>
+        <p>Choose your role to continue.</p>
+      </header>
+
+      <section class="panel role-panel">
+        <h2>Continue as</h2>
+        <div class="role-actions">
+          <button id="choose-complainant" type="button" class="role-choice">Complainant</button>
+          <button id="choose-admin" type="button" class="role-choice secondary">Admin</button>
+        </div>
+        <p id="role-message" class="message" aria-live="polite">Select one option to open the right panel.</p>
+      </section>
+
+      <section id="complainant-panel" class="panel" hidden>
+        <h2>Submit a complaint</h2>
+        <form id="complaint-form" class="complaint-form">
+          <label for="filedByName">Your name</label>
+          <input id="filedByName" name="filedByName" maxlength="80" required />
+
+          <label for="title">Title</label>
+          <input id="title" name="title" maxlength="100" required />
+
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="4" maxlength="1000" required></textarea>
+
+          <label for="location">Location</label>
+          <input id="location" name="location" maxlength="120" required />
+
+          <label for="category">Category</label>
+          <select id="category" name="category">
+            <option value="general">General</option>
+            <option value="road">Road</option>
+            <option value="sanitation">Sanitation</option>
+            <option value="lighting">Lighting</option>
+            <option value="safety">Safety</option>
+            <option value="water">Water</option>
+            <option value="electricity">Electricity</option>
+            <option value="other">Other</option>
+          </select>
+
+          <button type="submit">Submit Complaint</button>
+        </form>
+        <p id="complaint-message" class="message" aria-live="polite"></p>
+
+        <hr class="section-divider" />
+
+        <h3>View complaint status</h3>
+        <form id="complainant-status-form" class="complaint-form">
+          <label for="statusName">Your name</label>
+          <input id="statusName" name="statusName" maxlength="80" required />
+          <button type="submit" class="secondary">View My Complaints</button>
+        </form>
+        <p id="complainant-status-message" class="message" aria-live="polite"></p>
+        <ul id="complainant-reports-list" class="reports-list"></ul>
+      </section>
+
+      <section id="admin-area" class="admin-area" hidden>
+      <section class="panel admin-login-panel">
+        <h2>Admin login</h2>
+        <form id="login-form" class="login-form">
+          <label for="userId">Admin ID</label>
+          <input id="userId" name="userId" autocomplete="username" required />
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+
+          <button type="submit">Sign In</button>
+        </form>
+        <p id="login-message" class="message" aria-live="polite"></p>
+        <p class="helper-text">Admin demo credentials: admin / admin123.</p>
+      </section>
+
+      <section id="app-shell" class="app-shell" hidden>
+        <header class="hero">
+          <div>
+            <p class="eyebrow">Logged in</p>
+            <h1 id="welcome-title">Admin dashboard</h1>
+            <p id="welcome-copy">Review all complaints and update their status.</p>
+          </div>
+          <div class="session-actions">
+            <p id="session-label" class="session-label"></p>
+            <button id="logout-button" type="button" class="secondary">Log Out</button>
+          </div>
+        </header>
+
+        <section class="stats" aria-label="Report statistics">
+          <article class="stat-card">
+            <p>Total</p>
+            <strong id="stat-total">0</strong>
+          </article>
+          <article class="stat-card">
+            <p>Open</p>
+            <strong id="stat-open">0</strong>
+          </article>
+          <article class="stat-card">
+            <p>In Progress</p>
+            <strong id="stat-inProgress">0</strong>
+          </article>
+          <article class="stat-card">
+            <p>Resolved</p>
+            <strong id="stat-resolved">0</strong>
+          </article>
+        </section>
+
+        <section class="panel">
+          <div class="section-head">
+            <h2>All complaints</h2>
+            <button id="admin-refresh" type="button" class="secondary">Refresh</button>
+          </div>
+
+          <form id="filters-form" class="filters" aria-label="Filter reports">
+            <label for="filter-status">Status</label>
+            <select id="filter-status" name="status">
+              <option value="">All statuses</option>
+              <option value="open">Open</option>
+              <option value="inProgress">In Progress</option>
+              <option value="resolved">Resolved</option>
+            </select>
+
+            <label for="filter-category">Category</label>
+            <select id="filter-category" name="category">
+              <option value="">All categories</option>
+              <option value="general">General</option>
+              <option value="road">Road</option>
+              <option value="sanitation">Sanitation</option>
+              <option value="lighting">Lighting</option>
+              <option value="safety">Safety</option>
+              <option value="water">Water</option>
+              <option value="electricity">Electricity</option>
+              <option value="other">Other</option>
+            </select>
+
+            <label for="filter-query">Search</label>
+            <input id="filter-query" name="q" placeholder="title, description, location, complainant" />
+          </form>
+
+          <p id="admin-message" class="message" aria-live="polite"></p>
+          <ul id="admin-reports-list" class="reports-list"></ul>
+        </section>
+      </section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
